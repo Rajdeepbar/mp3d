@@ -25,7 +25,8 @@ class Window(QtWidgets.QWidget):
         self.le = QtWidgets.QLineEdit()
         self.btn = QtWidgets.QPushButton("Search")
         self.btn1 = QtWidgets.QPushButton("Download")
-        self.result = QtWidgets.QTextBrowser(self)
+        self.result = QtWidgets.QTextEdit(self)
+        self.result.setReadOnly(True)
         box = QtWidgets.QVBoxLayout()
         box.addWidget(self.le)
         box.addWidget(self.result)
@@ -38,12 +39,12 @@ class Window(QtWidgets.QWidget):
         
 
     def __search__(self):
-        self.result.setText(" Searching...")
+        self.result.clear()
+        #self.result.insertPlainText(" Searching...")
         i = 1
         text = self.le.text()
         minutes = 0
         self.title, minutes, seconds = self.song.search(text,self.option)
-        self.result.clear()
 
         for a in self.title:
             if a is not "":
