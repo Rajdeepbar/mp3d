@@ -3,9 +3,9 @@ import sys                                                 #System-specific para
 from PyQt5 import QtWidgets,QtGui,QtCore,sip               #Creating a GUI
 from functools import partial                              #Create partial Functions
 import Application
+import shutil,os
 
-
-Search_Output = 5
+Search_Output = 2
 
 
 class Window(QtWidgets.QWidget):
@@ -15,7 +15,7 @@ class Window(QtWidgets.QWidget):
         super().__init__()                                 #used for providing control to the inherited module
         self.setGeometry(700,200,500,500)
         self.setWindowTitle("MP3 Downloader")
-        self.setWindowIcon(QtGui.QIcon('Music.jpg'))
+        self.setWindowIcon(QtGui.QIcon('Resources/Music.jpg'))
         self.song = Application.MP3D()
         self.home()
         self.option = Options
@@ -67,6 +67,10 @@ class Window(QtWidgets.QWidget):
             self.result.setText(" Try Again")
         if check== 1:
             self.result.setText(" Download Completed")
+            dir_path = os.path.dirname(os.path.realpath(__file__)) 
+            for file in os.listdir(dir_path):  
+               if file.endswith('.mp3'): 
+                   shutil.move(dir_path+'/'+str(file), dir_path+'/Downloads/')
                 
         
 
