@@ -4,4 +4,4 @@ ffmpeg/
 GUI.spec
 ffmpeg.exe
 Downloads/
-.vs/
+.vs/*
