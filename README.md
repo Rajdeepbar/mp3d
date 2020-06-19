@@ -1,5 +1,4 @@
-# MP3D
-A User-Friendly GUI based MP3 Downloader.
+MP3D is an open source windows based application that focuses on providing an easy to use Graphical Interface to search and download your favorite tracks from YouTube in the renowned MP3 file format.
 
 ![](https://github.com/Rajdeepbar/mp3d/blob/master/Main.PNG)
 
